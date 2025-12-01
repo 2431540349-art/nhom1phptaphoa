@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng ký tài khoản</title>
+    <link rel="stylesheet" href="outinuser.css" />
+  </head>
+  <body>
+    <div class="register-container">
+      <h1>Tạo tài khoản mới</h1>
+      <p>Đăng ký để tiếp tục sử dụng dịch vụ</p>
+
+      <?php if (isset($_GET['error'])): ?>
+      <div class="error"><?= htmlspecialchars($_GET['error']) ?></div>
+      <?php endif; ?>
+
+      <form action="process-signup.php" method="POST">
+        <div class="input-group">
+          <label for="fullname">Họ và tên</label>
+          <input
+            type="text"
+            id="fullname"
+            name="fullname"
+            placeholder="Nguyễn Văn A"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="ten@email.com"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="password">Mật khẩu</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="••••••••"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="confirm_password">Xác nhận mật khẩu</label>
+          <input
+            type="password"
+            id="confirm_password"
+            name="confirm_password"
+            placeholder="Nhập lại mật khẩu"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn">Đăng ký</button>
+
+        <div class="login">
+          <p>Đã có tài khoản? <a href="login.php">Đăng nhập</a></p>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

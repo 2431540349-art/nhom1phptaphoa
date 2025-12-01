@@ -1,0 +1,80 @@
+:root{
+  --bg: #f4f7fb;
+  --panel: #ffffff;
+  --muted: #6b7280;
+  --text: #0f1724;
+  --accent: #0b76d1;
+  --accent-2: #064a7a;
+  --danger: #d73a49;
+  --success: #12c2e9;
+  --radius: 14px;
+  --card-shadow: 0 16px 40px rgba(11,20,46,0.06);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:linear-gradient(180deg,var(--bg),#ffffff);color:var(--text);-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+
+.vnp-wrap{max-width:980px;margin:32px auto;padding:18px}
+.vnp-card{background:var(--panel);border-radius:var(--radius);box-shadow:var(--card-shadow);padding:20px;border:1px solid rgba(11,20,46,0.03)}
+
+body.vnpay-page .vnp-wrap { padding-top:40px }
+.vnpay-title{font-size:22px;font-weight:800;color:var(--accent-2);margin:0 0 14px}
+.vnp-sub{color:var(--muted);margin-bottom:18px}
+
+.vnp-form{display:grid;grid-template-columns:1fr 360px;gap:18px}
+.vnp-form .left, .vnp-form .right{min-width:0}
+.vnp-amount{display:flex;flex-direction:column;gap:8px}
+.vnp-amount input[type=number]{font-size:18px;padding:12px;border-radius:10px;border:1px solid #e6eef6;background:#fbfdff}
+
+.vnp-methods{display:flex;flex-direction:column;gap:12px}
+.vnp-method{display:flex;align-items:center;gap:12px;padding:12px;border-radius:10px;border:1px solid rgba(11,20,46,0.04);background:linear-gradient(180deg,#fff,#fbfdff);cursor:pointer;transition:transform .12s,box-shadow .12s}
+.vnp-method:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(11,20,46,0.06)}
+.vnp-method .ico{width:56px;height:40px;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:8px;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
+.vnp-method .meta{flex:1}
+.vnp-method .meta .title{font-weight:700}
+.vnp-method .meta .desc{color:var(--muted);font-size:0.95rem}
+.vnp-method input[type=radio]{display:none}
+.vnp-method.selected{border-color:rgba(11,118,209,0.14);box-shadow:0 8px 24px rgba(11,118,209,0.06)}
+
+.vnp-pay-btn{display:flex;align-items:center;gap:12px;justify-content:flex-end;margin-top:18px}
+.vnp-pay-btn .btn{padding:12px 18px;border-radius:10px;font-weight:700}
+.btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;border:0}
+.btn-ghost{background:transparent;color:var(--accent-2);border:1px solid rgba(11,20,46,0.04)}
+
+body.vnpay-return .vnp-wrap{padding-top:28px}
+.vnp-hero{display:flex;gap:20px;align-items:center}
+.vnp-status{width:132px;height:132px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:28px}
+.vnp-status.success{background:linear-gradient(180deg,#12c2e9,#0b76d1);box-shadow:0 20px 40px rgba(11,118,209,0.10)}
+.vnp-status.fail{background:linear-gradient(180deg,#ff7a7a,#c53030);box-shadow:0 20px 40px rgba(197,57,57,0.10)}
+.vnp-hero .vnp-hero-meta{flex:1}
+.vnp-hero h2{margin:0;font-size:20px;color:var(--accent-2)}
+.vnp-hero p{margin:6px 0;color:var(--muted)}
+.vnp-amount-hero{font-size:20px;font-weight:900;color:var(--accent-2);margin-top:6px}
+
+.vnp-summary{display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:18px}
+.vnp-details .row{display:flex;justify-content:space-between;padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(11,20,46,0.03);margin-bottom:10px}
+.vnp-details .k{color:var(--muted)}
+.vnp-details .v{font-weight:800;color:var(--accent-2)}
+
+.vnp-actions{display:flex;gap:12px;justify-content:flex-end;margin-top:14px}
+.vnp-actions .btn{padding:12px 16px;border-radius:10px}
+.btn-download{background:#fff;border:1px solid rgba(11,20,46,0.04);color:var(--accent-2)}
+
+@media (max-width:880px){
+  .vnp-form{grid-template-columns:1fr}
+  .vnp-summary{grid-template-columns:1fr}
+  .vnp-hero{flex-direction:column;align-items:flex-start}
+  .vnp-status{width:96px;height:96px;font-size:20px}
+  .vnp-actions{justify-content:stretch;flex-direction:column}
+}
+
+.muted{color:var(--muted)}
+.center{text-align:center}
+
+input:focus,button:focus{outline:3px solid rgba(11,118,209,0.08);outline-offset:2px}
+
+@keyframes vnp-fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.vnp-card, .vnp-hero{animation:vnp-fade .36s ease-out}
